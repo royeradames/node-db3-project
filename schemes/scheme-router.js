@@ -59,9 +59,8 @@ router.post('/', (req, res) => {
 });
 
 router.post('/:id/steps', (req, res) => {
-  const { id } = req.params; 
-  const stepData = {...req.body, scheme_id: Number(id)};
-  console.log(stepData)
+  const id = Number(req.params.id); 
+  const stepData = {...req.body, scheme_id: id};
   Schemes.findById(id)
   .then(scheme => {
     if (scheme.length) {
