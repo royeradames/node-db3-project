@@ -9,6 +9,6 @@ module.exports = {
     remove
 }
 
-function find () {
-    
+function find() {
+    return db('schemes')
 }
