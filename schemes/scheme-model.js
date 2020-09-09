@@ -29,6 +29,5 @@ function update(changes, id) {
     return db('schemes').where('id', id).update(changes)
 }
 function remove(id) {
-    return db('schemes').where('id', id).update(changes)
-
+    return db('schemes').where('id', id).del()
 }
