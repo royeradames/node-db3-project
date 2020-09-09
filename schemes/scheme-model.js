@@ -15,6 +15,6 @@ function find() {
 function findById (id) {
     return db('schemes').where('id', id)
 }
-function findById (id) {
+function findSteps (id) {
     return db('schemes as sc').where('id', id).join('steps as s', 's.scheme_id', 'sc.id')
 }
