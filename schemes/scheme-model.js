@@ -22,8 +22,8 @@ function findSteps(id) {
 function add(newScheme) {
     return db('schemes').insert(newScheme)
 }
-function addStep(newStep, id) {
-    return db('steps').where('id', id).insert(newStep)
+function addStep(newStep) {
+    return db('steps').insert(newStep)
 }
 function update(changes, id) {
     return db('schemes').where('id', id).update(changes)
