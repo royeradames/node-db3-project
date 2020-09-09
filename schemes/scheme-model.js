@@ -12,3 +12,9 @@ module.exports = {
 function find() {
     return db('schemes')
 }
+function findById (id) {
+    return db('schemes').where('id', id)
+}
+function findById (id) {
+    return db('schemes as sc').where('id', id).join('steps as s', 's.scheme_id', 'sc.id')
+}
