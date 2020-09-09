@@ -1,3 +1,11 @@
+## stretch goal
+--Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+SELECT categories.CategoryName, sum( categories.CategoryID) as Count
+FROM [Products]
+join categories 
+	on categories.categoryid = products.categoryid
+group by categories.CategoryID
+
 # Node DB3 Project Starter Code
 
 ### Task 1: Project Setup
