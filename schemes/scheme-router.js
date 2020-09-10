@@ -59,22 +59,24 @@ router.post('/', (req, res) => {
 });
 
 router.post('/:id/steps', (req, res) => {
-  const stepData = req.body;
-  const { id } = req.params; 
-
+  const id = Number(req.params.id); 
+  const stepData = {...req.body, scheme_id: id};
   Schemes.findById(id)
   .then(scheme => {
-    if (scheme) {
-      Schemes.addStep(stepData, id)
+    if (scheme.length) {
+      Schemes.addStep(stepData)
       .then(step => {
         res.status(201).json(step);
+      })
+      .catch(err => {
+        res.status(500).json(err.message)
       })
     } else {
       res.status(404).json({ message: 'Could not find scheme with given id.' })
     }
   })
   .catch (err => {
-    res.status(500).json({ message: 'Failed to create new step' });
+    res.status(500).json({ message: err.message });
   });
 });
 

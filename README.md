@@ -1,3 +1,17 @@
+## stretch goal
+--Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+SELECT categories.CategoryName, sum( categories.CategoryID) as Count
+FROM [Products]
+join categories 
+	on categories.categoryid = products.categoryid
+group by categories.CategoryID
+;
+
+--Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+SELECT orderid, sum(quantity) as ItemCount
+FROM [OrderDetails]
+group by orderid
+
 # Node DB3 Project Starter Code
 
 ### Task 1: Project Setup
